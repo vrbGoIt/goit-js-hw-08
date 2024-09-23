@@ -65,42 +65,35 @@ const images = [
   },
 ];
 
+const randomImages = _.shuffle(images);
+let strGallery = "";
 
-const content = document.createElement("div");
+for (const image of randomImages) {
+  const { preview, original, description } = image;
 
-            const h1 = document.createElement("h1");
-            const p = document.createElement("p");
+    strGallery +=
+        `<li class="gallery-item">
+        <a class="gallery-link" href="${original}">
+            <img
+            class="gallery-image"
+            src="${preview}"
+            data-source="${original}"
+            alt="${description}"
+            />
+        </a>
+        </li>`;
+    
+}
 
-            h1.textContent = "Create element";
-            p.textContent =
-                "Create elements dynamicly and use them in your lightbox.";
-
-            content.appendChild(h1);
-            content.appendChild(p);
-
-            const instance = basicLightbox.create(content);
-
-document.querySelector("button.create").onclick = instance.show;
             
 const gallery = document.querySelector("ul.gallery");
+gallery.insertAdjacentHTML("beforeend", strGallery);
 
 gallery.addEventListener("click", showImage);
-
-// gallery.addEventListener("click", (event) => {
-//   console.log("event.target: ", event.target);
-//   console.log("event.currentTarget: ", event.currentTarget);
-// });
-
 function showImage(event) {
-
     const src = event.target.querySelector("img").dataset.source;
-    console.log(src);
-    
     const instance = basicLightbox.create(`
-    <img src="${src}">
-    `);
-
+    <img src="${src}">`);
     instance.show();
-    
 }
 

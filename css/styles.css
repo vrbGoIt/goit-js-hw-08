@@ -1,5 +1,25 @@
+.gallery-link {
+    pointer-events: none;
+}
 
+ul {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+}
 
-.isDisabled {
-  pointer-events: none;
+.gallery {
+    width: 1152px;
+    background-color: white;
+    padding: 24px 156px;
+    display: flex;
+    grid-row-gap: 24px;
+    grid-column-gap: 24px;
+    flex-wrap: wrap;
+}
+
+.gallery-image {
+    width: 360px;
+    height: 200px;
+    display: block;
 }
