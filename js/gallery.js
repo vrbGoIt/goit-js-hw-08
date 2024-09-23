@@ -65,10 +65,10 @@ const images = [
   },
 ];
 
-const randomImages = _.shuffle(images);
+// const randomImages = _.shuffle(images);
 let strGallery = "";
 
-for (const image of randomImages) {
+for (const image of images) {
   const { preview, original, description } = image;
 
     strGallery +=
