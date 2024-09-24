@@ -91,9 +91,9 @@ gallery.insertAdjacentHTML("beforeend", strGallery);
 
 gallery.addEventListener("click", showImage);
 function showImage(event) {
-    console.log(event.target.nodeName);
-    if (event.target.nodeName === "LI") {
-        const src = event.target.querySelector("img").dataset.source;
+    event.preventDefault();
+    if (event.target.nodeName === "IMG") {
+        const src = event.target.dataset.source;
         const instance = basicLightbox.create(`
             <img src="${src}">
         `);
